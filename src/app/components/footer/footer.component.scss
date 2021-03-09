@@ -1,0 +1,116 @@
+:host ::ng-deep {
+    .app-footer {
+        .app-footer-inner{
+            min-height: 400px;
+            padding-top: 100px;
+            padding-bottom: 100px;
+            background-image: linear-gradient(to bottom, #38ccf5, #008cc9);
+
+            .box{
+           height: 100%;
+            }
+            .box-2{
+                margin-left: 50px;
+            }
+
+            .box-3{
+                margin-left: 50px;
+            }
+
+            .app-footer-headline{
+                h3{
+                    font-size: 20px;
+                    margin-left: 40px;
+                }
+                p{
+                    line-height: 20px;
+                    margin: 30px 0 30px 0;
+                }
+                img{
+                    width: 40px;
+                }
+            }
+
+            .app-footer-user-con{
+                margin-top: 100px;
+                .app-footer-user-pic{
+                height: 70px;
+                width:70px;
+                border-radius: 50%;
+                background-color: rgba(000,000,000, 0.2);
+                overflow: hidden;
+
+                img{
+                    vertical-align: middle !important;
+                    border-style: none !important;
+                    o-object-fit: cover !important;
+                    object-fit: cover !important;
+                    width: 100% !important;
+                    height: 100% !important;
+
+                    // height: 100px;
+                    // width:100px;
+                    // border-radius: 50px;
+                }
+                }
+
+                .app-footer-user-details{
+                    color: #fff;
+                    margin-left: 20px;
+
+                    h4{
+                        margin-bottom: 5px !important;
+                        font-weight: 500;
+                    }
+
+                }
+
+
+            }
+        }
+
+        .footer-bottom{
+        padding-top: 15px;
+        padding-bottom: 15px;
+        // min-height: 200px;
+        background-color: #333;
+
+        .links{
+            a{
+                // margin: 0 20px 0 20px;
+                text-decoration: none;
+                color: #fff;
+                &:hover{
+                    color: var(--appBlue ) !important;
+                }
+            }
+            }
+
+        .socials{
+            img{
+                width: 20px;
+                height: 20px;
+            }
+          }
+        }
+    }
+
+    
+
+    @media (max-width: 767px){
+        .footer-bottom{
+            padding-top: 15px;
+            padding-bottom: 15px;
+            // min-height: 200px;
+            background-color: #333;
+    
+            .links{
+                margin-top: 20px;
+                }
+    
+            .socials{
+                margin-top: 20px;
+              }
+            }
+    }
+    }
