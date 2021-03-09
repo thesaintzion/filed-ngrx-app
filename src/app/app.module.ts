@@ -3,24 +3,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from './_shared/shared.module';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-
-
+import { SharedModule } from './shared/shared.module';
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './state/counter/counter.reducer';
 import { userReducer } from './state/user/user.reducer';
-// import { userReducer } from './state/user.reducer';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent,
-    HeaderComponent,
-    FooterComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +20,7 @@ import { userReducer } from './state/user/user.reducer';
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({ userDetails: userReducer })
+    StoreModule.forRoot({ userDetails: userReducer }) // Make the store available globally 
   ],
   providers: [],
   bootstrap: [AppComponent]

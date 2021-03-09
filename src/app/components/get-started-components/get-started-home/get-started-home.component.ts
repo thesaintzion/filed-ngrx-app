@@ -5,7 +5,6 @@ import { Subscription } from 'rxjs';
 import { UserDetails } from 'src/app/models/UserDetails';
 import { PaymentService } from 'src/app/services/payment.service';
 import { SharedService } from 'src/app/services/shared.service';
-import { decrement, increment, reset } from 'src/app/state/counter/counter.actions';
 import { ADD_USER_DETAILS } from 'src/app/state/user/user.actions';
 
 

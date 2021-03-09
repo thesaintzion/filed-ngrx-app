@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { UserDetails } from 'src/app/models/UserDetails';
-import { decrement, increment, reset } from 'src/app/state/counter/counter.actions';
 
 @Component({
   selector: 'app-landing-page',

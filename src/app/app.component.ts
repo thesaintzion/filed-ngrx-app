@@ -16,7 +16,7 @@ import { SharedService } from './services/shared.service';
 export class AppComponent implements OnInit {
   title = 'portfolio-one';
   audio = false;
-  loading = false;
+  loading = true;
 
 
   constructor( public sharedService: SharedService, private router: Router) {
@@ -29,11 +29,7 @@ export class AppComponent implements OnInit {
         case event instanceof NavigationEnd:
         case event instanceof NavigationCancel:
         case event instanceof NavigationError: {
-          
-          // setTimeout( () => {
             this.loading = false;
-        // }, 1000)
-        
           break;
         }
         default: {
