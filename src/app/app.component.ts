@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Event,
   NavigationCancel,
   NavigationEnd,
   NavigationError,
   NavigationStart,
   Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { SharedService } from './services/shared.service';
 
@@ -13,14 +14,13 @@ import { SharedService } from './services/shared.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'portfolio-one';
-  audio = false;
-  loading = true;
+export class AppComponent implements OnInit, OnDestroy {
 
+  loading = true;
+  routeSub: Subscription;
 
   constructor( public sharedService: SharedService, private router: Router) {
-    this.router.events.subscribe((event: Event) => {
+  this.routeSub = this.router.events.subscribe((event: Event) => {
       switch (true) {
         case event instanceof NavigationStart: {
           this.loading = true;
@@ -39,17 +39,17 @@ export class AppComponent implements OnInit {
     });
   }
     
-   
-
-
+  
    ngOnInit(): void {
-     setTimeout( () => {
-      this.audio = true;
-     }, 3000)
+  
   }
 
-
-
+  ngOnDestroy(){
+    // Always unsubscribe
+    if(this.routeSub){
+      this.routeSub.unsubscribe();
+    }
+  }
 
 }
 

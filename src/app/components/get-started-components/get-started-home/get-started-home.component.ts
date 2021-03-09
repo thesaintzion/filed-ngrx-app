@@ -7,6 +7,9 @@ import { PaymentService } from 'src/app/services/payment.service';
 import { SharedService } from 'src/app/services/shared.service';
 import { ADD_USER_DETAILS } from 'src/app/state/user/user.actions';
 
+import {  takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+
 
 @Component({
   selector: 'app-get-started-home',
@@ -35,6 +38,8 @@ export class GetStartedHomeComponent implements OnInit, OnDestroy {
       callingCode: '+1',
     }
   ];
+
+  destroy$: Subject<boolean> = new Subject<boolean>();
 
  
 
@@ -66,6 +71,57 @@ export class GetStartedHomeComponent implements OnInit, OnDestroy {
 
 // Getter for user details form
   get userDetailsControls(){return this.userDetailsForm.controls};
+ 
+
+  // Handles user form submit
+  addUserDetails(){
+    this.submitted = true;
+    this.loading = true;
+  if(this.userDetailsForm.invalid){
+    this.sharedService.openSnackBar('Please fill in  the form', 'Ok', 3000, 'bg-danger')
+  }else{
+
+      //  The data to be sent to the server..
+      this.newUserDetails = {
+        first_name: this.userDetailsForm.value.first_name,
+        last_name: this.userDetailsForm.value.last_name,
+        email: this.userDetailsForm.value.email,
+        monthly_advert_budget: this.userDetailsForm.value.monthly_advert_budget,
+        phone: {
+            callingCode:  this.userDetailsForm.value.phone.callingCode,
+            number: this.userDetailsForm.value.phone.number
+        }
+      }
+
+      // Dispatch to store
+      this.dispatchUserDetails(this.newUserDetails);
+
+  
+    // Call the payment service api with some rxjs stuffs
+    this.paymentService.makePayment(this.newUserDetails).pipe(takeUntil(this.destroy$)).subscribe( 
+      res => {
+        console.log('The response', res);
+      setTimeout( () => {
+        this.submitted = false;
+        this.loading = false;      
+        this.success = true;
+        this.sharedService.openSnackBar('Your request was successful!!', 'Ok', 3000, 'bg-success')
+      }, 3000);
+      
+      },
+      err => {
+        console.log('Érror posting user', err);
+        setTimeout( () => {
+          this.submitted = false;
+          this.loading = false;  
+          this.success = false;    
+          this.sharedService.openSnackBar('Oops..!! Something went wrong, please try again later', 'Ok', 4000, 'bg-danger')
+        }, 3000);
+        
+      });     
+}
+  
+}
 
 
 // handle  dispatch user details
@@ -73,68 +129,14 @@ dispatchUserDetails(userDetails){
   this.store.dispatch(ADD_USER_DETAILS({userDetails: userDetails}));
 }
 
- 
 
-  // Handles user form submit
-    addUserDetails(){
-      this.submitted = true;
-      this.loading = true;
-    if(this.userDetailsForm.invalid){
-      this.sharedService.openSnackBar('Please fill in  the form', 'Ok', 3000, 'bg-danger')
-    }else{
-
-        //  The data to be sent to the server..
-        this.newUserDetails = {
-          first_name: this.userDetailsForm.value.first_name,
-          last_name: this.userDetailsForm.value.last_name,
-          email: this.userDetailsForm.value.email,
-          monthly_advert_budget: this.userDetailsForm.value.monthly_advert_budget,
-          phone: {
-              callingCode:  this.userDetailsForm.value.phone.callingCode,
-              number: this.userDetailsForm.value.phone.number
-          }
-         }
-
-        // Dispatch to store
-        this.dispatchUserDetails(this.newUserDetails);
-
-  
-        // Call the payment service api
-       this.makePaymentUnsubscribe =  this.paymentService.makePayment(this.newUserDetails).subscribe( 
-          res => {
-            console.log('The response', res);
-          setTimeout( () => {
-            this.submitted = false;
-            this.loading = false;      
-            this.success = true;
-            this.sharedService.openSnackBar('Your request was successful!!', 'Ok', 3000, 'bg-success')
-          }, 3000);
-          
-          },
-          err => {
-            console.log('Érror posting user', err);
-            setTimeout( () => {
-              this.submitted = false;
-              this.loading = false;  
-              this.success = false;    
-              this.sharedService.openSnackBar('Oops..!! Something went wrong', 'Ok', 3000, 'bg-danger')
-            }, 3000);
-            
-          });     
-    }
-      
-    }
-    
-
-
-  ngOnInit(): void {
-   
-  }
+  ngOnInit(): void { }
 
   ngOnDestroy(){
-    if(this.makePaymentUnsubscribe){
-      this.makePaymentUnsubscribe.unsubscribe();
-    }
+
+    this.destroy$.next(true);
+    // Unsubscribe from the subject
+    this.destroy$.unsubscribe();
   }
 
 }

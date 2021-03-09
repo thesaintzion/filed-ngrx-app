@@ -122,7 +122,7 @@
                                 <div class="input-group-prepend">
                                   <span class="input-group-text border-0 px-0 py-0 bg-white">{{userDetailsForm?.value?.phone?.callingCode}}</span>
                                 </div>
-                                <input  formControlName="number" class="form-control" required>
+                                <input type="number" formControlName="number" class="form-control" required>
                               </div>   
                           </div>
 
@@ -142,15 +142,15 @@
                     </div>
 
                     <div class="col-lg-12">
-                        
-                    <button [disabled]="userDetailsForm.invalid"  tabindex="-1" mat-raised-button class="submit-btn shadow-sm w-100 mt-2  py-1">
+                        <!-- [disabled]="userDetailsForm.invalid" -->
+                    <button   tabindex="-1" mat-raised-button class="submit-btn shadow-sm w-100 mt-2  py-1">
                         {{loading ? 'Loading' : 'GET FREE TRIAL'}}
                     </button>
                 </div>
                 </form>
             </ng-template>
         
-           
+    
 <!-- <pre class="border"> hey: {{userDetailsForm?.value | json}}</pre> -->
 
        </div>
