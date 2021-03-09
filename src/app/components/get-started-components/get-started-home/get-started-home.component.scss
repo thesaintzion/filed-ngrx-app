@@ -1,4 +1,7 @@
 :host ::ng-deep {
+    main{
+        overflow: hidden;
+    }
     // Showcase 
     .showcase{
         padding-top: 60px;
@@ -252,6 +255,7 @@
         .circle-fill{fill: #ffe0da}
 
         .text-section{
+            z-index: 4 !important; 
             margin-bottom: 40px;
             .text{
                 width: 100% !important;
@@ -298,7 +302,7 @@
                 top: -90px;
                 left: auto !important;
                 right: -90px !important;
-                z-index: 1;
+                z-index:   -0 !important;
                 width: 200px;
             }
     
@@ -312,6 +316,7 @@
                 margin-left: 0;
                 position: sticky !important;
                 z-index: 2 !important;
+                margin: 0 auto !important;
 
                 h3{
                     display: none;
@@ -329,25 +334,38 @@
             }
         }
     }
+
+
+        // benefit
+        .benefit{
+            padding-top: 40px !important;
+            padding-bottom:40px !important;
+            height: auto !important;
+            .benefit-title{
+                text-align: center !important;
+                p{
+                    text-align: center !important;
+                    margin-bottom: 40px !important;
+                    width: 100%;
+                    span{
+                        color: var(--appBlue);
+                    }
+                    
+                    // font-size: 25px;
+                    line-height: 30px;
+                    font-weight: bold;
+                }
+            }
+            
+        
+            
+           
+        }
 }
 
-@media screen and (max-width: 767px) {
-    .more-photo-holder {
-        height: 200px !important;
-    }
-}
+
 
 
 }
 
 
-:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
-    padding: 0 0 1rem 0;
-    margin: 0;
-     align-items: center;
-
-  }
-  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-    // color: #eee !important;
-    // opacity: 1!important;
-  }

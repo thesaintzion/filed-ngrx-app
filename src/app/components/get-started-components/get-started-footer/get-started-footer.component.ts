@@ -27,7 +27,7 @@ export class GetStartedFooterComponent implements OnInit {
       quote: `“Your company is truly upstanding”`,
       description: `“The service was excellent. After using filed my business skyrocketed! It really saves me time and effort.”`,
       name: 'Dawna N.',
-      photo: 'assets/img/pexels-andrea-piacquadio-3763188.jpg',
+      photo: 'assets/img/pexels-pixabay-220453.jpg',
       jobTitle: 'Editor @ Museum of Typography'
     }
   ]

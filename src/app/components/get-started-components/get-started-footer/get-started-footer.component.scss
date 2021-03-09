@@ -32,11 +32,12 @@
             }
 
             .app-footer-user-con{
-                margin-top: 100px;
+                
+                margin-top: 10px;
                 .app-footer-user-pic{
                 height: 70px;
                 width:70px;
-                border-radius: 50%;
+                border-radius: 70px;
                 background-color: rgba(000,000,000, 0.2);
                 overflow: hidden;
 
@@ -95,6 +96,9 @@
         .footer-bottom{
             padding-top: 15px;
             padding-bottom: 15px;
+            // padding-left: 15px;
+            // padding-right: 15px;
+           
             // min-height: 200px;
             background-color: #333;
     
@@ -105,6 +109,16 @@
             .socials{
                 margin-top: 20px;
               }
+
+              
+            }
+
+            .app-footer-inner{
+                .col-lg-3{
+                    margin-bottom: 100px;
+                }
+                // padding-left: 15px;
+                // padding-right: 15px;
             }
     }
     }
