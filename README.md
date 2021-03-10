@@ -18,7 +18,7 @@ https://filed-ngrx-app.herokuapp.com
 Description: You can create a budget plan by filling in your details and then send it to a fake sever..
 After that you can view you details which is saved in the redux store.
 
-* (01) On the landing page, Click on get "GET STARTED" button which will take you to a page with a form to fill.
+* (01) On the landing page, Click on the "GET STARTED" button which will take you to a page with a form to fill.
 * (02)  After filling the form, hit the "GET FREE TRAIL" button to submit
 * (03)  After submitting, you can view your details
 
