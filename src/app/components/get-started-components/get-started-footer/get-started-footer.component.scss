@@ -95,8 +95,9 @@
 
     @media (max-width: 767px){
         .footer-bottom{
-            padding-top: 15px;
+            padding-top: 20px !important;
             padding-bottom: 15px;
+            text-align: center;
             // padding-left: 15px;
             // padding-right: 15px;
            
@@ -104,11 +105,11 @@
             background-color: #333;
     
             .links{
-                margin-top: 20px;
+                margin-top: 35px;
                 }
     
             .socials{
-                margin-top: 20px;
+                margin-top: 35px;
               }
 
               

@@ -2,10 +2,16 @@
 https://filed-ngrx-app.herokuapp.com
 
 
+
+
+
 # [1] How To Install and Run the App
 * (01)  run: git clone https://github.com/thesaintzion/filed-ngrx-app.git 
 * (02)  run: npm i
 * (03)  run: ng serve --open 
+
+
+
 
 
 # [2] How The App Works
@@ -14,7 +20,10 @@ After that you can view you details which is saved in the redux store.
 
 * (01) On the landing page, Click on get "GET STARTED" button which will take you to a page with a form to fill.
 * (02)  After filling the form, hit the "GET FREE TRAIL" button to submit
-* (06)  After submitting, you can view your details
+* (03)  After submitting, you can view your details
+
+
+
 
 
 # [3] App Folder Structure
