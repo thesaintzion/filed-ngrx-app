@@ -27,16 +27,18 @@ After that you can view you details which is saved in the redux store.
 
 
 # [3] App Folder Structure
--Root-Folder
-  -src
-    -app
-        -components
-            -get-started-components
-            -landing-page
-        -models
-        -services
-        -shared
-        -state
-      .......
+
+* -Root-Folder
+*   -src
+*     -app
+*         -components
+*             -get-started-components
+*             -landing-page
+*         -models
+*         -services
+*         -shared
+*         -state
+*       .......
+     
 
 
